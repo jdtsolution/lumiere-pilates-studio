@@ -34,7 +34,6 @@ export default function Home() {
 
       {/* Hero Section */}
       <section id="hero" className="relative h-screen min-h-[700px] flex items-center justify-center overflow-hidden">
-        {/* Unsplash image: Calm yoga studio with natural light */}
         <div 
           className="absolute inset-0 z-0 bg-cover bg-center bg-no-repeat bg-fixed"
           style={{ 
@@ -53,23 +52,23 @@ export default function Home() {
             className="max-w-3xl mx-auto"
           >
             <span className="inline-block text-primary uppercase tracking-[0.3em] text-sm md:text-base font-semibold mb-6 bg-white/80 px-4 py-2 rounded-full backdrop-blur-sm shadow-sm">
-              Mind • Body • Spirit
+              마음 · 몸 · 정신
             </span>
             <h1 className="text-5xl md:text-7xl lg:text-8xl font-serif text-foreground font-light tracking-tight mb-8 leading-tight">
-              Find Your <span className="italic text-primary">Balance</span>
+              당신의 <span className="italic text-primary">균형</span>을 찾으세요
             </h1>
             <p className="text-xl md:text-2xl text-foreground/80 font-light mb-10 max-w-xl mx-auto leading-relaxed">
-              Experience the transformative power of pilates in a sanctuary designed for your wellness journey.
+              당신의 웰니스 여정을 위해 설계된 공간에서 필라테스의 변화하는 힘을 경험하세요.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link to="programs" smooth={true} offset={-80}>
                 <Button className="h-14 px-8 rounded-full bg-primary hover:bg-primary/90 text-white text-lg shadow-lg shadow-primary/25 hover:shadow-xl hover:shadow-primary/30 transition-all hover:-translate-y-1">
-                  View Programs
+                  프로그램 보기
                 </Button>
               </Link>
               <Link to="contact" smooth={true} offset={-80}>
                 <Button variant="outline" className="h-14 px-8 rounded-full border-2 border-foreground/10 hover:bg-white/50 text-foreground text-lg backdrop-blur-sm transition-all hover:-translate-y-1">
-                  Book a Class
+                  수업 예약하기
                 </Button>
               </Link>
             </div>
@@ -87,16 +86,15 @@ export default function Home() {
               viewport={{ once: true }}
               variants={fadeIn}
             >
-              {/* Unsplash image: Detail shot of pilates equipment or pose */}
               <div className="relative rounded-3xl overflow-hidden shadow-2xl shadow-stone-200">
                 <img 
                   src="https://images.unsplash.com/photo-1518310383802-640c2de311b2?q=80&w=2070&auto=format&fit=crop" 
-                  alt="Pilates studio atmosphere" 
+                  alt="필라테스 스튜디오 분위기" 
                   className="w-full h-auto object-cover hover:scale-105 transition-transform duration-1000"
                 />
                 <div className="absolute bottom-6 right-6 bg-white/90 backdrop-blur-md p-4 rounded-2xl shadow-lg max-w-xs hidden md:block">
-                  <p className="font-serif italic text-lg text-primary">"Physical fitness is the first requisite of happiness."</p>
-                  <p className="text-xs text-right mt-2 uppercase tracking-wider font-semibold opacity-60">— Joseph Pilates</p>
+                  <p className="font-serif italic text-lg text-primary">"신체 건강은 행복의 첫 번째 조건입니다."</p>
+                  <p className="text-xs text-right mt-2 uppercase tracking-wider font-semibold opacity-60">— 조셉 필라테스</p>
                 </div>
               </div>
             </motion.div>
@@ -108,20 +106,20 @@ export default function Home() {
               variants={staggerContainer}
             >
               <SectionHeading 
-                title="A Sanctuary for Movement" 
-                subtitle="Our Philosophy" 
+                title="움직임을 위한 공간" 
+                subtitle="우리의 철학" 
                 centered={false} 
               />
               <motion.div variants={fadeIn} className="space-y-6 text-lg text-muted-foreground leading-relaxed">
                 <p>
-                  At Lumière Pilates, we believe that mindful movement is the key to a balanced life. Our studio is not just a place to exercise; it's a sanctuary where you can disconnect from the noise of the outside world and reconnect with your body.
+                  루미에르 필라테스에서는 마음챙김 움직임이 균형 잡힌 삶의 핵심이라고 믿습니다. 우리 스튜디오는 단순한 운동 공간이 아니라, 바깥 세상의 소음에서 벗어나 몸과 다시 연결할 수 있는 안식처입니다.
                 </p>
                 <p>
-                  Founded on the principles of classical Pilates with contemporary biomechanics, our approach focuses on building strength from the inside out. We emphasize precision, control, and breath to help you develop a strong core, improve flexibility, and enhance your overall well-being.
+                  클래식 필라테스의 원칙과 현대 생체역학을 기반으로, 우리의 접근 방식은 내면에서부터 힘을 기르는 데 중점을 둡니다. 정확성, 조절, 호흡을 강조하여 강한 코어를 개발하고, 유연성을 향상시키며, 전반적인 웰빙을 증진합니다.
                 </p>
                 <div className="pt-4">
                   <ul className="space-y-3">
-                    {["Small group classes", "Expert certified instructors", "State-of-the-art equipment", "Personalized attention"].map((item) => (
+                    {["소규모 그룹 수업", "전문 자격 강사진", "최신 장비", "개인 맞춤 지도"].map((item) => (
                       <li key={item} className="flex items-center text-foreground font-medium">
                         <div className="w-6 h-6 rounded-full bg-secondary flex items-center justify-center mr-3 text-primary">
                           <ArrowRight size={14} />
@@ -139,13 +137,12 @@ export default function Home() {
 
       {/* Programs Section */}
       <section id="programs" className="py-24 bg-secondary/30 relative">
-        {/* Decorative background element */}
         <div className="absolute top-0 right-0 w-1/3 h-full bg-gradient-to-l from-white/40 to-transparent pointer-events-none" />
         
         <div className="container px-4 mx-auto relative z-10">
           <SectionHeading 
-            title="Choose Your Path" 
-            subtitle="Our Programs" 
+            title="나만의 길을 선택하세요" 
+            subtitle="프로그램 안내" 
           />
           
           {isLoadingPrograms ? (
@@ -174,8 +171,8 @@ export default function Home() {
       <section id="instructors" className="py-24 bg-white">
         <div className="container px-4 mx-auto">
           <SectionHeading 
-            title="Meet Our Guides" 
-            subtitle="Expert Instruction" 
+            title="강사진 소개" 
+            subtitle="전문 지도" 
           />
 
           {isLoadingInstructors ? (
@@ -202,7 +199,6 @@ export default function Home() {
 
       {/* Contact Section */}
       <section id="contact" className="py-24 bg-stone-900 text-white relative overflow-hidden">
-        {/* Background texture/image overlay */}
         <div className="absolute inset-0 opacity-10 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')]"></div>
         
         <div className="container px-4 mx-auto relative z-10">
@@ -214,13 +210,13 @@ export default function Home() {
               variants={fadeIn}
             >
               <span className="block text-primary uppercase tracking-[0.2em] text-sm font-medium mb-3">
-                Get in Touch
+                연락하기
               </span>
               <h2 className="text-4xl md:text-5xl font-serif font-light mb-8">
-                Begin Your Journey
+                여정을 시작하세요
               </h2>
               <p className="text-white/70 text-lg mb-12 max-w-md leading-relaxed">
-                Have questions about our classes or membership? Reach out to us or stop by the studio. We'd love to welcome you.
+                수업이나 회원권에 대해 궁금한 점이 있으신가요? 연락 주시거나 스튜디오를 방문해 주세요. 여러분을 환영합니다.
               </p>
 
               <div className="space-y-8">
@@ -229,8 +225,8 @@ export default function Home() {
                     <MapPin className="text-primary" />
                   </div>
                   <div>
-                    <h4 className="font-serif text-xl mb-1">Visit Us</h4>
-                    <p className="text-white/60">123 Wellness Boulevard<br />San Francisco, CA 94110</p>
+                    <h4 className="font-serif text-xl mb-1">오시는 길</h4>
+                    <p className="text-white/60">서울특별시 강남구<br />테헤란로 123번길 45</p>
                   </div>
                 </div>
 
@@ -239,8 +235,8 @@ export default function Home() {
                     <Phone className="text-primary" />
                   </div>
                   <div>
-                    <h4 className="font-serif text-xl mb-1">Call Us</h4>
-                    <p className="text-white/60">(555) 123-4567</p>
+                    <h4 className="font-serif text-xl mb-1">전화 문의</h4>
+                    <p className="text-white/60">02-1234-5678</p>
                   </div>
                 </div>
 
@@ -249,8 +245,8 @@ export default function Home() {
                     <Mail className="text-primary" />
                   </div>
                   <div>
-                    <h4 className="font-serif text-xl mb-1">Email Us</h4>
-                    <p className="text-white/60">hello@lumierepilates.com</p>
+                    <h4 className="font-serif text-xl mb-1">이메일</h4>
+                    <p className="text-white/60">hello@lumierepilates.co.kr</p>
                   </div>
                 </div>
               </div>
@@ -263,7 +259,7 @@ export default function Home() {
               variants={fadeIn}
               className="bg-white rounded-3xl p-8 md:p-10 shadow-2xl text-foreground"
             >
-              <h3 className="text-2xl font-serif font-medium mb-6">Send a Message</h3>
+              <h3 className="text-2xl font-serif font-medium mb-6">메시지 보내기</h3>
               <ContactForm />
             </motion.div>
           </div>
@@ -273,14 +269,14 @@ export default function Home() {
       {/* Footer */}
       <footer className="bg-stone-950 text-white/40 py-12 text-sm">
         <div className="container px-4 mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
-          <div className="font-serif text-2xl text-white/80">LUMIÈRE</div>
+          <div className="font-serif text-2xl text-white/80">루미에르</div>
           <div className="flex gap-8">
-            <a href="#" className="hover:text-primary transition-colors">Privacy</a>
-            <a href="#" className="hover:text-primary transition-colors">Terms</a>
-            <a href="#" className="hover:text-primary transition-colors">Instagram</a>
+            <a href="#" className="hover:text-primary transition-colors">개인정보처리방침</a>
+            <a href="#" className="hover:text-primary transition-colors">이용약관</a>
+            <a href="#" className="hover:text-primary transition-colors">인스타그램</a>
           </div>
           <div className="text-center md:text-right">
-            &copy; {new Date().getFullYear()} Lumière Pilates Studio. All rights reserved.
+            &copy; {new Date().getFullYear()} 루미에르 필라테스 스튜디오. All rights reserved.
           </div>
         </div>
       </footer>

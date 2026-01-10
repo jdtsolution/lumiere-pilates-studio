@@ -39,43 +39,43 @@ export async function registerRoutes(
   const existingPrograms = await storage.getPrograms();
   if (existingPrograms.length === 0) {
     await storage.createProgram({
-      title: "Foundation Reformer",
-      description: "Perfect for beginners. Learn the core principles of Pilates on the reformer machine.",
-      duration: "50 min",
-      difficulty: "Beginner"
+      title: "기초 리포머",
+      description: "초보자에게 완벽한 클래스입니다. 리포머 기구에서 필라테스의 핵심 원리를 배워보세요.",
+      duration: "50분",
+      difficulty: "초급"
     });
     await storage.createProgram({
-      title: "Power Sculpt",
-      description: "A high-intensity class focusing on strength, endurance, and toning.",
-      duration: "50 min",
-      difficulty: "Advanced"
+      title: "파워 스컬프트",
+      description: "근력, 지구력, 토닝에 집중하는 고강도 클래스입니다.",
+      duration: "50분",
+      difficulty: "상급"
     });
     await storage.createProgram({
-      title: "Restorative Flow",
-      description: "Focus on flexibility, breath work, and gentle movements to restore balance.",
-      duration: "60 min",
-      difficulty: "All Levels"
+      title: "리스토러티브 플로우",
+      description: "유연성, 호흡법, 부드러운 움직임에 집중하여 균형을 회복하는 클래스입니다.",
+      duration: "60분",
+      difficulty: "전 레벨"
     });
   }
 
   const existingInstructors = await storage.getInstructors();
   if (existingInstructors.length === 0) {
     await storage.createInstructor({
-      name: "Sarah Kim",
-      role: "Lead Instructor",
-      bio: "Certified Pilates instructor with 10+ years of experience specializing in rehabilitation.",
+      name: "김서연",
+      role: "수석 강사",
+      bio: "재활 전문 10년 이상 경력의 공인 필라테스 강사입니다.",
       imageUrl: "https://images.unsplash.com/photo-1518611012118-696072aa579a?auto=format&fit=crop&q=80&w=800"
     });
     await storage.createInstructor({
-      name: "Marcus Chen",
-      role: "Strength Coach",
-      bio: "Focuses on athletic performance and core stability through dynamic reformer workouts.",
+      name: "이준호",
+      role: "스트렝스 코치",
+      bio: "다이나믹한 리포머 운동을 통해 운동 능력과 코어 안정성에 집중합니다.",
       imageUrl: "https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?auto=format&fit=crop&q=80&w=800"
     });
     await storage.createInstructor({
-      name: "Emma Davis",
-      role: "Mindful Movement",
-      bio: "Combines yoga and pilates principles for a holistic approach to wellness.",
+      name: "박지현",
+      role: "마음챙김 무브먼트",
+      bio: "요가와 필라테스의 원리를 결합하여 전인적인 웰니스 접근법을 제공합니다.",
       imageUrl: "https://images.unsplash.com/photo-1594381898411-846e7d193883?auto=format&fit=crop&q=80&w=800"
     });
   }

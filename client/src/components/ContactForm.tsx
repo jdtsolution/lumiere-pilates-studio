@@ -26,14 +26,14 @@ export function ContactForm() {
     mutation.mutate(data, {
       onSuccess: () => {
         toast({
-          title: "Message sent",
-          description: "We'll get back to you shortly.",
+          title: "메시지가 전송되었습니다",
+          description: "빠른 시일 내에 답변 드리겠습니다.",
         });
         form.reset();
       },
       onError: (error) => {
         toast({
-          title: "Error",
+          title: "오류",
           description: error.message,
           variant: "destructive",
         });
@@ -50,10 +50,10 @@ export function ContactForm() {
             name="name"
             render={({ field }) => (
               <FormItem>
-                <FormLabel className="text-foreground/80">Name</FormLabel>
+                <FormLabel className="text-foreground/80">이름</FormLabel>
                 <FormControl>
                   <Input 
-                    placeholder="Your name" 
+                    placeholder="홍길동" 
                     {...field} 
                     className="bg-white/50 border-gray-200 focus:border-primary focus:ring-primary/20 rounded-xl"
                   />
@@ -67,10 +67,10 @@ export function ContactForm() {
             name="email"
             render={({ field }) => (
               <FormItem>
-                <FormLabel className="text-foreground/80">Email</FormLabel>
+                <FormLabel className="text-foreground/80">이메일</FormLabel>
                 <FormControl>
                   <Input 
-                    placeholder="your@email.com" 
+                    placeholder="example@email.com" 
                     {...field} 
                     className="bg-white/50 border-gray-200 focus:border-primary focus:ring-primary/20 rounded-xl"
                   />
@@ -86,10 +86,10 @@ export function ContactForm() {
           name="message"
           render={({ field }) => (
             <FormItem>
-              <FormLabel className="text-foreground/80">Message</FormLabel>
+              <FormLabel className="text-foreground/80">문의 내용</FormLabel>
               <FormControl>
                 <Textarea 
-                  placeholder="Tell us about your goals or ask a question..." 
+                  placeholder="궁금하신 점이나 목표에 대해 알려주세요..." 
                   className="min-h-[150px] bg-white/50 border-gray-200 focus:border-primary focus:ring-primary/20 rounded-xl resize-none"
                   {...field} 
                 />
@@ -107,11 +107,11 @@ export function ContactForm() {
           {mutation.isPending ? (
             <>
               <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-              Sending...
+              전송 중...
             </>
           ) : (
             <>
-              Send Message
+              메시지 보내기
               <Send className="ml-2 h-4 w-4" />
             </>
           )}

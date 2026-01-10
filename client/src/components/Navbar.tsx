@@ -17,10 +17,10 @@ export function Navbar() {
   }, []);
 
   const navLinks = [
-    { name: "About", to: "about" },
-    { name: "Programs", to: "programs" },
-    { name: "Instructors", to: "instructors" },
-    { name: "Contact", to: "contact" },
+    { name: "소개", to: "about" },
+    { name: "프로그램", to: "programs" },
+    { name: "강사진", to: "instructors" },
+    { name: "연락처", to: "contact" },
   ];
 
   return (
@@ -39,7 +39,7 @@ export function Navbar() {
             smooth={true}
             className="cursor-pointer text-2xl font-serif font-semibold tracking-wide text-primary"
           >
-            LUMIÈRE PILATES
+            루미에르 필라테스
           </Link>
 
           {/* Desktop Navigation */}
@@ -61,7 +61,7 @@ export function Navbar() {
                 variant="default" 
                 className="bg-primary hover:bg-primary/90 text-white rounded-full px-6"
               >
-                Book Class
+                수업 예약
               </Button>
             </Link>
           </div>
@@ -97,7 +97,7 @@ export function Navbar() {
             ))}
             <Link to="contact" smooth={true} offset={-80} onClick={() => setIsMobileMenuOpen(false)}>
               <Button className="w-full bg-primary text-white rounded-full">
-                Book a Class
+                수업 예약하기
               </Button>
             </Link>
           </div>
