@@ -1,38 +1,49 @@
-import { type User, type InsertUser } from "@shared/schema";
-import { randomUUID } from "crypto";
-
-// modify the interface with any CRUD methods
-// you might need
+import { db } from "./db";
+import {
+  instructors,
+  programs,
+  contactMessages,
+  type Instructor,
+  type InsertInstructor,
+  type Program,
+  type InsertProgram,
+  type InsertContactMessage,
+  type ContactMessage
+} from "@shared/schema";
 
 export interface IStorage {
-  getUser(id: string): Promise<User | undefined>;
-  getUserByUsername(username: string): Promise<User | undefined>;
-  createUser(user: InsertUser): Promise<User>;
+  getInstructors(): Promise<Instructor[]>;
+  createInstructor(instructor: InsertInstructor): Promise<Instructor>;
+  
+  getPrograms(): Promise<Program[]>;
+  createProgram(program: InsertProgram): Promise<Program>;
+  
+  createContactMessage(message: InsertContactMessage): Promise<ContactMessage>;
 }
 
-export class MemStorage implements IStorage {
-  private users: Map<string, User>;
-
-  constructor() {
-    this.users = new Map();
+export class DatabaseStorage implements IStorage {
+  async getInstructors(): Promise<Instructor[]> {
+    return await db.select().from(instructors);
   }
 
-  async getUser(id: string): Promise<User | undefined> {
-    return this.users.get(id);
+  async createInstructor(instructor: InsertInstructor): Promise<Instructor> {
+    const [newInstructor] = await db.insert(instructors).values(instructor).returning();
+    return newInstructor;
   }
 
-  async getUserByUsername(username: string): Promise<User | undefined> {
-    return Array.from(this.users.values()).find(
-      (user) => user.username === username,
-    );
+  async getPrograms(): Promise<Program[]> {
+    return await db.select().from(programs);
   }
 
-  async createUser(insertUser: InsertUser): Promise<User> {
-    const id = randomUUID();
-    const user: User = { ...insertUser, id };
-    this.users.set(id, user);
-    return user;
+  async createProgram(program: InsertProgram): Promise<Program> {
+    const [newProgram] = await db.insert(programs).values(program).returning();
+    return newProgram;
+  }
+
+  async createContactMessage(message: InsertContactMessage): Promise<ContactMessage> {
+    const [newMessage] = await db.insert(contactMessages).values(message).returning();
+    return newMessage;
   }
 }
 
-export const storage = new MemStorage();
+export const storage = new DatabaseStorage();

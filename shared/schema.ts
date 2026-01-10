@@ -1,18 +1,39 @@
-import { sql } from "drizzle-orm";
-import { pgTable, text, varchar } from "drizzle-orm/pg-core";
+import { pgTable, text, serial, integer, boolean } from "drizzle-orm/pg-core";
 import { createInsertSchema } from "drizzle-zod";
 import { z } from "zod";
 
-export const users = pgTable("users", {
-  id: varchar("id").primaryKey().default(sql`gen_random_uuid()`),
-  username: text("username").notNull().unique(),
-  password: text("password").notNull(),
+export const instructors = pgTable("instructors", {
+  id: serial("id").primaryKey(),
+  name: text("name").notNull(),
+  role: text("role").notNull(),
+  bio: text("bio").notNull(),
+  imageUrl: text("image_url").notNull(),
 });
 
-export const insertUserSchema = createInsertSchema(users).pick({
-  username: true,
-  password: true,
+export const programs = pgTable("programs", {
+  id: serial("id").primaryKey(),
+  title: text("title").notNull(),
+  description: text("description").notNull(),
+  duration: text("duration").notNull(), // e.g. "50 min"
+  difficulty: text("difficulty").notNull(), // Beginner, Intermediate, Advanced
 });
 
-export type InsertUser = z.infer<typeof insertUserSchema>;
-export type User = typeof users.$inferSelect;
+export const contactMessages = pgTable("contact_messages", {
+  id: serial("id").primaryKey(),
+  name: text("name").notNull(),
+  email: text("email").notNull(),
+  message: text("message").notNull(),
+});
+
+export const insertInstructorSchema = createInsertSchema(instructors).omit({ id: true });
+export const insertProgramSchema = createInsertSchema(programs).omit({ id: true });
+export const insertContactMessageSchema = createInsertSchema(contactMessages).omit({ id: true });
+
+export type Instructor = typeof instructors.$inferSelect;
+export type InsertInstructor = z.infer<typeof insertInstructorSchema>;
+
+export type Program = typeof programs.$inferSelect;
+export type InsertProgram = z.infer<typeof insertProgramSchema>;
+
+export type ContactMessage = typeof contactMessages.$inferSelect;
+export type InsertContactMessage = z.infer<typeof insertContactMessageSchema>;
