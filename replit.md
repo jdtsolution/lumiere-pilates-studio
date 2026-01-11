@@ -60,3 +60,19 @@ Preferred communication style: Simple, everyday language.
 ### Docker Support
 - Docker Compose configuration available for containerized deployment
 - Includes MySQL service with preconfigured credentials
+
+## Deployment Notes
+
+### Docker 배포 (권장)
+이 프로젝트는 Docker를 통한 MySQL 배포용으로 설정되어 있습니다.
+배포 가이드: `DOCKER_README.md` 참조
+
+### 배포 전 필수 수정사항
+`drizzle.config.ts` 파일에서:
+```typescript
+dialect: "mysql"  // "postgresql"에서 변경 필요
+```
+
+### Replit 환경
+Replit은 PostgreSQL만 지원하므로 이 MySQL 버전은 Replit에서 실행되지 않습니다.
+Docker 환경에서만 실행 가능합니다.
