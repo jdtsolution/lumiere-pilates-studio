@@ -1,27 +1,27 @@
-import { mysqlTable, varchar, int, text } from "drizzle-orm/mysql-core";
+import { pgTable, text, serial } from "drizzle-orm/pg-core";
 import { createInsertSchema } from "drizzle-zod";
 import { z } from "zod";
 
-export const instructors = mysqlTable("instructors", {
-  id: int("id").primaryKey().autoincrement(),
-  name: varchar("name", { length: 255 }).notNull(),
-  role: varchar("role", { length: 255 }).notNull(),
+export const instructors = pgTable("instructors", {
+  id: serial("id").primaryKey(),
+  name: text("name").notNull(),
+  role: text("role").notNull(),
   bio: text("bio").notNull(),
-  imageUrl: varchar("image_url", { length: 500 }).notNull(),
+  imageUrl: text("image_url").notNull(),
 });
 
-export const programs = mysqlTable("programs", {
-  id: int("id").primaryKey().autoincrement(),
-  title: varchar("title", { length: 255 }).notNull(),
+export const programs = pgTable("programs", {
+  id: serial("id").primaryKey(),
+  title: text("title").notNull(),
   description: text("description").notNull(),
-  duration: varchar("duration", { length: 100 }).notNull(),
-  difficulty: varchar("difficulty", { length: 100 }).notNull(),
+  duration: text("duration").notNull(),
+  difficulty: text("difficulty").notNull(),
 });
 
-export const contactMessages = mysqlTable("contact_messages", {
-  id: int("id").primaryKey().autoincrement(),
-  name: varchar("name", { length: 255 }).notNull(),
-  email: varchar("email", { length: 255 }).notNull(),
+export const contactMessages = pgTable("contact_messages", {
+  id: serial("id").primaryKey(),
+  name: text("name").notNull(),
+  email: text("email").notNull(),
   message: text("message").notNull(),
 });
 

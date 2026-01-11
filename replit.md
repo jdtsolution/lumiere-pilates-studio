@@ -2,7 +2,7 @@
 
 ## Overview
 
-A Korean-language Pilates studio website built with React, Express, and MySQL. The application showcases studio programs, instructor profiles, and provides a contact form for prospective clients. It features a premium, calming aesthetic with smooth scroll animations using Framer Motion and a Sage Green/Soft Sand color palette.
+A Korean-language Pilates studio website built with React, Express, and PostgreSQL. The application showcases studio programs, instructor profiles, and provides a contact form for prospective clients. It features a premium, calming aesthetic with smooth scroll animations using Framer Motion and a Sage Green/Soft Sand color palette.
 
 ## User Preferences
 
@@ -22,14 +22,13 @@ Preferred communication style: Simple, everyday language.
 ### Backend Architecture
 - **Framework**: Express.js with TypeScript
 - **API Design**: RESTful endpoints defined in shared/routes.ts with Zod schemas
-- **Database ORM**: Drizzle ORM configured for MySQL
+- **Database ORM**: Drizzle ORM configured for PostgreSQL
 - **Build System**: Custom esbuild script for server bundling, Vite for client
 
 ### Data Storage
-- **Database**: MySQL (configured via mysql2 driver)
+- **Database**: PostgreSQL (configured via pg driver)
 - **Schema Definition**: Drizzle ORM schemas in shared/schema.ts
 - **Tables**: instructors, programs, contactMessages
-- **Note**: drizzle.config.ts shows PostgreSQL dialect but server/db.ts uses MySQL - the application currently runs on MySQL
 
 ### Shared Code Pattern
 - Schema definitions and API route contracts live in the `shared/` directory
@@ -44,8 +43,8 @@ Preferred communication style: Simple, everyday language.
 ## External Dependencies
 
 ### Database
-- MySQL database accessed via DATABASE_URL environment variable
-- Uses mysql2 connection pooling
+- PostgreSQL database accessed via DATABASE_URL environment variable
+- Uses pg connection pooling
 
 ### UI Component Library
 - shadcn/ui components (Radix UI primitives)
@@ -59,20 +58,12 @@ Preferred communication style: Simple, everyday language.
 
 ### Docker Support
 - Docker Compose configuration available for containerized deployment
-- Includes MySQL service with preconfigured credentials
+- Includes PostgreSQL service with preconfigured credentials
 
 ## Deployment Notes
 
-### Docker 배포 (권장)
-이 프로젝트는 Docker를 통한 MySQL 배포용으로 설정되어 있습니다.
+### Docker 배포
 배포 가이드: `DOCKER_README.md` 참조
 
-### 배포 전 필수 수정사항
-`drizzle.config.ts` 파일에서:
-```typescript
-dialect: "mysql"  // "postgresql"에서 변경 필요
-```
-
 ### Replit 환경
-Replit은 PostgreSQL만 지원하므로 이 MySQL 버전은 Replit에서 실행되지 않습니다.
-Docker 환경에서만 실행 가능합니다.
+Replit에서도 PostgreSQL을 지원하므로 Replit과 Docker 모두에서 실행 가능합니다.
