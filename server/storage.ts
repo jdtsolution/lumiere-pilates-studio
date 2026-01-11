@@ -1,4 +1,5 @@
 import { db } from "./db";
+import { eq } from "drizzle-orm";
 import {
   instructors,
   programs,
@@ -27,7 +28,9 @@ export class DatabaseStorage implements IStorage {
   }
 
   async createInstructor(instructor: InsertInstructor): Promise<Instructor> {
-    const [newInstructor] = await db.insert(instructors).values(instructor).returning();
+    const result = await db.insert(instructors).values(instructor);
+    const insertId = Number((result as any).insertId);
+    const [newInstructor] = await db.select().from(instructors).where(eq(instructors.id, insertId));
     return newInstructor;
   }
 
@@ -36,12 +39,16 @@ export class DatabaseStorage implements IStorage {
   }
 
   async createProgram(program: InsertProgram): Promise<Program> {
-    const [newProgram] = await db.insert(programs).values(program).returning();
+    const result = await db.insert(programs).values(program);
+    const insertId = Number((result as any).insertId);
+    const [newProgram] = await db.select().from(programs).where(eq(programs.id, insertId));
     return newProgram;
   }
 
   async createContactMessage(message: InsertContactMessage): Promise<ContactMessage> {
-    const [newMessage] = await db.insert(contactMessages).values(message).returning();
+    const result = await db.insert(contactMessages).values(message);
+    const insertId = Number((result as any).insertId);
+    const [newMessage] = await db.select().from(contactMessages).where(eq(contactMessages.id, insertId));
     return newMessage;
   }
 }
